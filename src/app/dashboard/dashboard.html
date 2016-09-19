@@ -1,0 +1,72 @@
+<!--=====   DASHBOARD PAGE  ========-->
+
+
+<!-- ================================= 
+  "Students" panel
+================================== -->
+<div class="row">
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<p ui-sref="student.grid" class="student-title">Students</p>	
+			</div> <!-- Panel heading div -->
+			
+            <!-- Set-up of dynamic table -->
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                        	{{dashboard.students.length}} Students
+                        </tr>
+                    </tbody>
+                </table>  <!-- Main table div -->
+            </div> 	<!-- Panel boduy div -->
+		</div>	<!-- Main panel div -->
+	</div> 	<!-- Column div -->
+
+
+<!-- ================================= 
+  "Projects" panel
+================================== -->
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+			<div ui-sref="project.grid" class="panel-heading">
+				<p class="student-title">Projects</p>	
+			</div> <!-- Panel heading div -->
+			
+            <!-- Set-up of dynamic table -->
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                        	{{dashboard.projects.length}} Projects
+                        </tr>
+                    </tbody>
+                </table>  <!-- Main table div -->
+            </div> 	<!-- Panel boduy div -->
+		</div>	<!-- Main panel div -->
+	</div> 	<!-- Column div -->
+
+
+<!-- ================================= 
+  "Assignments" panel
+================================== -->
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<p class="assignments-title">Assignments</p>	
+			</div> <!-- Panel heading div -->
+			
+            <!-- Set-up of dynamic table -->
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                        	{{dashboard.assignments.length}} Assignments
+                        </tr>
+                    </tbody>
+                </table>  <!-- Main table div -->
+            </div> 	<!-- Panel boduy div -->
+		</div>	<!-- Main panel div -->
+	</div> 	<!-- Column div -->
+</div>  <!-- Main row div -->

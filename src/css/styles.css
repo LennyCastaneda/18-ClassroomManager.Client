@@ -1,0 +1,234 @@
+/* ================================= 
+  Base Layout Styles
+==================================== */
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Varela Round', sans-serif;
+  line-height: 1.6;
+  margin:0;
+}
+
+.background {
+  background: -webkit-linear-gradient(odeg, #fff, transparent 80%),
+   url("../img/classroom.jpg");
+  background: -o-linear-gradient(#fff, transparent 80%),
+   url("../img/classroom.jpg");
+  background: linear-gradient(#fff, transparent 80%),
+   url("../img/classroom.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+p {
+  font-size: 1em;
+  margin: 5px 20px 13px;
+}
+
+h2,
+h3,
+a {
+  color: #000;
+}
+
+h2,
+h3 {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+/*========================================
+*   Panel
+=========================================*/
+
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+ul.topnav li a:hover {background-color: #555;}
+
+ul.topnav li.icon {display: none;}
+
+/*========================================
+*   Panel
+=========================================*/
+.wrapper {
+    min-height: calc(100vh - 70px);
+}
+
+
+.container {
+      margin: 25px auto;
+}
+
+.student-panel, .project-panel {
+  margin-bottom:  0px;
+}
+
+
+.panel-primary > .panel-heading {
+    padding-bottom: 0px
+}
+
+.well {
+  
+}
+
+.panel-body {
+  padding: 15px 36px;
+}
+
+
+.assignments {
+  width:  100%;
+}
+
+input-control {
+  border:  solid 1px grey;
+}
+
+.form-control {
+  display:  inline-block;
+  padding: 22px;
+}
+
+.vertical-align-center {
+    margin: 0px 0 0px;
+}
+
+.tel-container, .description-area {
+    border-radius:  0px;
+}
+
+/*========================================
+* 	Button
+=========================================*/
+
+.add-student, .add-project {
+  border:  solid 1px grey;
+}
+
+.md-button.md-raised:not([disabled]) {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.student-dropdown {
+  width: 100%;
+  height:  46px;
+}
+
+#save-btn-panel {
+    margin-top:  -4px;
+    padding-bottom: 50px;
+    border-radius: 0px;
+}
+
+
+.project-dropdown {
+  width: 100%;
+  height: 46px;
+}
+
+.gradeDrown {
+  width: 50%;
+  height: 46px;
+}
+
+/*========================================
+*   Footer
+=========================================*/
+
+.stick-footer {
+  height: 1em;
+}
+
+/*Establishes the parameters for sticky footer*/
+.footer {
+  font-size: 1em;
+  color:  black;
+  height: 5em;
+  clear: both;
+  text-align: center;
+  background-color: grey;
+  padding-bottom: 20px;
+}
+
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+
+@media (min-width: 749px) { /* When screen is 769px or wider, these styles are applied */
+  .wrap {
+  min-height: cacl(100vh - 70px); /* Calculating 100% of viewport heigth minus footer height 89px */
+  }
+
+  .container {
+    width: 100%;    /* Giving containers a width prevents stretching too wide on larger screens */
+    max-width: 1000px;
+  }
+
+  /* ---- Float clearfix ---- */
+
+  .clearfix::after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+  
+}
+
+/* In this break point, all 3 columns will be layed out side-by-side on the same line  */
+@media (min-width: 1025px) {   /* When screen is 1025px or wider, these styles are applied */
+  
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Classroom Manager</title>
+
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<!-- endbower -->
+
+	<!-- google fonts css  -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<!-- google fonts css  -->
+
+	<!-- inject:css -->
+	<link rel="stylesheet" href="css/flexbox.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<!-- endinject -->
+
+</head>
+<body ng-controller="DashController as dashboard"  class="background">
+
+<div class="wrapper">  
+    <!-- Navigation bar -->
+
+    <ul class="topnav" id="myTopnav">
+        <li><a class="active" href="#">Classroom Manager</a></li>
+        <li><a ui-sref="dashboard">Dashboard</a></li>
+        <li><a ui-sref="student.grid">Students</a></li>
+        <li><a ui-sref="project.grid">Projects</a></li>
+      <li class="icon">
+        <a href="javascript:void(0);" style="font-size:15px;" onclick="navBarFunction()">☰</a>
+      </li>
+    </ul>   <!-- Navigation bar -->
+
+    <!-- ui-view container div -->
+	<div class="container" style="margin-top: 80px;">
+		<div ui-view></div>
+	</div> <!-- ui-view container div -->
+
+
+    <!-- Sticky footer div-->
+    <div class="stick-footer"></div>
+
+</div>  <!-- Warapper div -->
+
+    <!-- Main footer div-->
+    <div class="footer">
+        <br>
+        <!-- Footer icons div-->
+        <div class="icons">
+            <span>&copy; Lenny Castaneda</span>
+            <a href="mailto: lenny.castaneda@gmail.com"><img src="img/email-sociocon.png" width="30" alt="Email"></a>&nbsp;
+            <a class="hover" href="https://www.linkedin.com/in/lennyjcastaneda"><img src="img/github-sociocon.png" width="30" alt="LinkedIn"></a>&nbsp;
+            <a href="https://github.com/LennyCastaneda"><img src="img/linkedin-sociocon.png" width="30" alt="GitHub"></a>&nbsp;
+        </div>  <!-- Footer icons div-->
+    </div>  <!-- Main footer div-->
+
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/bootbox/bootbox.js"></script>
+    <script src="bower_components/ngBootbox/dist/ngBootbox.js"></script>
+    <!-- endbower -->
+
+    <!-- inject:js -->
+    <script src="app/app.module.js"></script>
+    <script src="app/core/assignment.factory.js"></script>
+    <script src="app/core/dashboard.factory.js"></script>
+    <script src="app/core/project.factory.js"></script>
+    <script src="app/core/student.factory.js"></script>
+    <script src="app/layout/navbar.js"></script>
+    <script src="app/student/student.detail.controller.js"></script>
+    <script src="app/student/student.grid.controller.js"></script>
+    <script src="app/dashboard/dashboard.controller.js"></script>
+    <script src="app/project/project.detail.controller.js"></script>
+    <script src="app/project/project.grid.controller.js"></script>
+    <script src="secrets/keys.values.js"></script>
+    <!-- endinject -->
+</body>
+</html>

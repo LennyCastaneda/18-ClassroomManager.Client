@@ -1,0 +1,64 @@
+<!--=====   PROJECT GRID PAGE  ========-->
+
+
+<!-- ================================= 
+  "Projects" panel
+================================== -->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<a ui-sref="project.detail" class="btn-sm btn-primary active pull-right add-project">Add Project</a>
+				<p class="grid-title">Projects</p>	
+			</div> <!-- Panel heading div -->
+			
+            <!-- Project grid table -->
+            <div class="container">
+                <!-- Table row div -->
+                <div class="col-xs-12">
+                    <table class="table table-responsive table-striped table-fixedheader">
+                        <thead>
+                            <tr>
+                                <th width="70%">Project Name</th>
+                                <th width="28%">Assigned Count</th>
+                                <th width="1%">Edit</th> 
+                                <th width="1%">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-model='project.grid.projects'>
+                            <tr class="projectCount" ng-repeat="project in projectGrid.projects | orderBy: 'projectId'">
+                                <td>
+                                    <div ng-hide="editProjectName">
+                                        {{project.name}}
+                                    </div>
+                                    <!-- Binding data to project list table -->
+                                <!--<div ng-show="editProjectName">
+                                        <input type="text" ng-model="project.grid" id="editProjectName" width="300">
+                                    </div> -->
+                                </td>
+                                <td>
+                                    {{project.assignments.length}}
+                                </td>
+                                <td>
+                                    <!-- Edit button takes user to project.detal page -->
+                                    <button type="button" class="btn btn-success" ui-sref="project.detail({ projectId: project.projectId })" id="editProject">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </button>
+                                </td>
+                                <td>
+                                    <!-- Delete button -->
+                                    <button type="button" class="btn btn-danger" ng-bootbox-confirm="Are you sure you want to delete this?" ng-bootbox-confirm-action="projectGrid.deleteProject(project.projectId)">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- Main table div -->
+                </div> 	<!-- Columns div -->
+            </div>	<!-- Project grid table -->
+            
+		</div>	<!-- Panel div -->
+	</div> 	<!-- Column div -->
+</div>  <!-- Main row div -->
+
+<!-- {{ projectGrid.projects | json }} -->

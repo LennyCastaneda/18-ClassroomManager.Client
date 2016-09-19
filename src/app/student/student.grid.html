@@ -1,0 +1,66 @@
+<!--=====   STUDENT GRID PAGE  ========-->
+
+
+<!-- ================================= 
+  "Students" panel
+================================== -->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<a ui-sref="student.detail" class="btn-sm btn-primary active pull-right" id="addStudent" >Add Student</a>
+				<p class="grid-title">Students</p>	
+			</div> <!-- Panel heading div -->
+		
+        <!-- Student grid table -->
+        <div class="container">
+            <!-- Table row div -->
+            <div class="col-xs-12">
+                <table class="table table-responsive table-striped table-fixedheader">
+                    <thead>
+                        <tr>
+                            <th width="70%">Student Name</th>
+                            <th width="28%">Assignments</th>
+                            <th width="1%">Edit</th> 
+                            <th width="1%">Delete</th>
+                        </tr>
+                    </thead>
+                    <!-- ng-model='studentGrid.students' -->
+                    <tbody ng-model="student.grid.students">
+                        <tr class="studentCount" ng-repeat="student in studentGrid.students | orderBy: 'lastName' " ng-class="">
+                            <td width="80%">
+                                <div>    
+                                    {{student.firstName}} {{student.lastName}}
+                                </div>
+                                <!-- Binding data to student list table -->
+<!--                                 <div ng-show="editTask">
+                                    <input type="text" ng-model="student.grid" id="editTask" width="300" id="editTextBox">
+                                </div> -->
+                            </td>
+                            <td>
+                            	{{ student.assignments.length }}
+                            </td>
+                            <td width="10%">
+                                <!-- Edit button takes user to student.detal page -->
+                                <button type="button" class="btn btn-success" ui-sref="student.detail({ studentId: student.studentId })" id="editStudent">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </td>
+                            <td width="10%">
+                                <!-- Delete button -->
+                                <button type="button" class="btn btn-danger"  ng-bootbox-confirm="Are you sure you want to delete this?"
+                            ng-bootbox-confirm-action="studentGrid.deleteStudent(student.studentId)">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>  <!-- Main table div -->
+            </div> 	<!-- Columns div -->
+        </div>	<!-- Student grid table -->
+
+		</div>	<!-- Panel div -->
+	</div> 	<!-- Column div -->
+</div>  <!-- Main row div -->
+
+<!-- {{ studentGrid.students | json }} -->

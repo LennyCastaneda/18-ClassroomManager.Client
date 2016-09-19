@@ -1,0 +1,41 @@
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {		/*When viewport is 769px or wider */
+
+	.main-header,
+	.row,			/* .row containers now flex items, displaying on the same line once viewport is 769px or wider */
+	display: flex;	/* makes all columns equal in height by default */
+	}
+
+	.main-header {
+		flex-direction: column;	/* site names dispalys in a column direction on separate line */
+		align-items: center;	/* center align the naviation, remains horizontal */
+	}
+
+/* 	.col {
+		flex: 1 50%; 	so each column takes up an equal amount of space inside the row
+	} */
+
+	.row {
+		flex-wrap: wrap; /* making it a multiline flex property, so when thre isn't enough room on one line a column will shift down to a second flex line */
+	}
+}
+
+
+@media (min-width: 1025px) {	/* When viewport is 1025px or wider */
+
+	.main-header {
+		flex-direction: row;	/* when viewport is 1025px or wider, both site name and navigation appear on the same line */
+		justify-content: space-between; /* align the name flex item and main-nav item to the right edge and adds any extra space between then */
+	}
+
+	.col {
+		flex-basis: 0;	/* displays the 3 columns on the same line when the viewport or device is 1025px or wider, columns no longer redistribute the space inside the row by breaking into a new line. */
+	}
+
+
+}
+
+

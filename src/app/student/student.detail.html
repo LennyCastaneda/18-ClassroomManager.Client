@@ -1,0 +1,151 @@
+<!--=====   STUDENT DETAIL PAGE  ========-->
+
+
+<!-- ================================= 
+  "Assign a project" panel
+================================== -->
+<div class="row" id="addStudent" ng-show="studentDetail.student.studentId"> 
+	<div class="col-sm-12">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<p class="project-title">Assign a project</p>
+			</div> <!-- Panel heading div -->
+			
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-xs-12">
+					    <label>Select a project</label>
+						<div class="input-group">
+					    	<select class="input-group project-dropdown" ng-options="option.name for option in studentDetail.allProjects" ng-model="studentDetail.newAssignment">
+					    	</select>
+						    <span class="input-group-btn">
+								<button type="submit" class="btn btn-primary btn-lg assign-btn" ng-click="studentDetail.addAssignment(studentDetail.student.studentId)">Assign</button>
+							</span>
+						</div>	<!-- Input group div  -->
+					</div>	<!-- Col div  -->
+				</div>	<!-- Row div  -->
+			</div> <!-- Panel body div -->
+
+		</div>	<!-- Main panel div -->
+	</div>	<!-- Column div -->
+</div>	<!-- Main row div -->
+
+<!-- <pre>{{studentDetail | json}}</pre> -->
+
+<!-- ================================= 
+  Assignments panel
+================================== -->
+
+<div class="row" id="addStudent" ng-show="studentDetail.student.studentId">
+	<div class="col-sm-12">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<p class="grid-title">Assignments</p>	
+			</div> <!-- Panel heading div -->
+			
+            <!-- Set-up of dynamic table -->
+            <div class="container">
+                <!-- Table row div -->
+                <div class="col-xs-12">
+                    <table class="table table-responsive table-striped table-fixedheader ">
+                        <thead>
+                            <tr>
+                                <th width="70%">Name</th>
+                                <th width="18%">Grade</th>
+	                            <th width="1%">Edit</th> 
+	                            <th width="1%">Delete</th>                               
+                            </tr>
+                        </thead>
+                        <tbody ng-model='studentDetail.students'>
+                            <tr class="studentData" ng-repeat="assignment in studentDetail.student.assignments">
+                                <td>
+									{{assignment.project.name}}
+                                </td>
+                                <td>
+                                	{{assignment.grade}}
+                                </td>
+                                <td>
+                                    <!-- Edit button -->
+                                    <button type="button" class="btn btn-success" ui-sref="project.detail({ projectId: assignment.projectId })">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </button>
+                                </td>
+                                <td>
+                                    <!-- Delete button -->
+                                    <button type="button" class="btn btn-danger" ng-bootbox-confirm="Are you sure you want to delete this?"
+                            ng-bootbox-confirm-action="studentDetail.deleteAssignment(assignment)">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>  <!-- Main table div -->
+                </div> 	<!-- Columns div -->
+            </div>	<!-- Container div -->
+		</div>	<!-- Panel div -->
+	</div> 	<!-- Column div -->
+</div>  <!-- Main row div -->
+
+
+<!-- ================================= 
+  "Edit student" panel
+================================== -->
+
+<div class="row" id="editStudent" ng-show="!editStudent">
+	<div class="col-sm-12">
+		<!-- Panel div -->
+		<div class="panel panel-info student-panel">
+			<div class="panel-heading">
+				<p class="grid-title">Edit Student</p>	
+			</div> <!-- Panel heading div -->
+			
+			<!-- Name Container div -->
+			<div class="container">
+
+				<!-- Name form-group div -->
+	            <div class="form-group">
+	            	<!-- First & Last Name Column div -->
+	                <div class="col-xs-6">
+						<label for="first-name">First Name</label>      
+						<input type="text" name="first-name" class="form-control" id="first-name" placeholder="{{ studentDetail.student.firstName }}" required ng-model="studentDetail.student.firstName"></input>
+					</div>	<!-- First Name Column div -->	
+					<div class="col-xs-6">
+						<label for="last-name">Last Name</label>      
+						<input type="text" name="last-name" class="form-control" id="last-name" placeholder="{{ studentDetail.student.lastName }}" required ng-model="studentDetail.student.lastName"></input>
+	                </div>	<!-- Last Name Column div -->	
+	            </div>	<!-- Name form-group div -->
+			</div>	<!-- Container div -->   	
+
+			<div class="container">	
+				<!-- Email form-group div -->
+	            <div class="form-group">
+	                <!-- Table row div -->
+					<div class="col-xs-12">
+						<label for="email">Email</label>
+						<input type="email" class="form-control" id="email" placeholder="{{ studentDetail.student.emailAddress }}" required ng-model="studentDetail.student.emailAddress">
+					</div>	<!-- Email Column div -->	
+	            </div>	<!-- Email form-group div -->
+			</div>	<!-- Container div -->  				
+
+			<div class="container tel-container">	
+	            <!-- Telephone form-group div -->
+	            <div class="form-group">
+	                <!-- Table row div -->
+					<div class="col-xs-12">
+						<label for="telephone">Telephone</label>
+						<input type="tel" class="form-control" id="telephone" placeholder="{{ studentDetail.student.telephone }}" required ng-model="studentDetail.student.telephone" maxlength="12">
+					</div>	<!-- Telephone Column div -->	
+	            </div>	<!-- Telephone form-group div -->
+	        </div>	<!-- Telephone container div --> 
+		</div>	<!-- Panel div -->
+		
+		<!-- Save button main div -->
+		<div>
+			<div class="well" id="save-btn-panel">
+				<a class="btn btn-primary pull-right" ng-click="studentDetail.saveStudent()">Save</a>	
+			</div> <!-- Well panel div -->
+		</div>	<!-- Save button main div -->
+	</div> 	<!-- Column div -->
+</div>  <!-- Main row div -->
+
+<!-- <pre> {{ studentDetail.student | json }} </pre> --> 

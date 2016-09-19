@@ -1,0 +1,34 @@
+{
+  "name": "CLASSROOM.CLIENT",
+  "authors": [
+    "Lenny Castaneda <lenny.castaneda@gmail.com>"
+  ],
+  "description": "a web application that helps teachers of any subject manage who their students are, what their projects are, and the assignment of projects to students.",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./src/bower_components",
+    "test",
+    "tests"
+  ],
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "angular-toastr": "^2.1.1",
+    "bootstrap": "^3.3.7",
+    "angular-animate": "^1.5.8",
+    "ngBootbox": "^0.1.3"
+  }
+}
